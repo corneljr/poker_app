@@ -18,7 +18,8 @@
 <% end %>	
 
 <%= @@game.hand_value %>
-
-<%# @@rolodex.record.each do |key,value| %>
-<p> <%#= key,value %> </p>
-<%# end %>  
+<p></p>
+<p>Record:</p>
+<% @@rolodex.record.each do |key,value| %>
+<p><%= key %> : <%= value %></p>
+<% end %>  
