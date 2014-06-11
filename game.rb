@@ -1,4 +1,4 @@
-require_relative'ranker'
+require_relative 'ranker'
 require_relative 'assets'
 require_relative 'rolodex'
 
@@ -27,15 +27,14 @@ class Game
 		hand1 = Ranker.cards_in_numbers(hand1)
 		hand2 = Ranker.cards_in_numbers(hand2)
 
-		while hand1.length > 2
+		# while hand1.length > 2
 		comparison = hand1.max <=> hand2.max
 		case comparison
 		when 1 then @rolodex.update_record("player1"); "player 1 wins!"
 		when -1 then @rolodex.update_record("player2"); "player 2 wins"
-		when 0 then 
-			hand1 = hand1.delete(hand1.max)
-			hand2 = hand2.delete(hand2.max)
-		end
+		else "tie"
+			# hand1 = hand1.delete(hand1.max)
+			# hand2 = hand2.delete(hand2.max)
 		end
 	end
 end
