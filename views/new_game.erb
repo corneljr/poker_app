@@ -1,1 +1,15 @@
-new_game.erb
+<p>
+<% @@game.player1.hand.each do |card| %>
+<%= card.suit %>
+<%= card.number%>
+<% end %>
+</p>
+
+<p>
+<% @@game.player2.hand.each do |card| %>
+<%= card.suit %>
+<%= card.number%>
+<% end %>
+</p>
+
+<%= @@game.hand_value %>
