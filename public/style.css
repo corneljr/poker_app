@@ -10,4 +10,5 @@ header {
 	height: 150px;
 	width: 100px;
 	background-color: red;
+	display: inline-block;
 }

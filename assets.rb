@@ -23,7 +23,7 @@ class Card
 end
 
 class Deck
-	SUITS = ["D", "C", "H", "S"]
+	SUITS = ["&diams;", "&clubs;", "&hearts;", "&spades;"]
 	NUMBERS = (2..14).to_a
 	attr_accessor :deck 
 	def initialize
