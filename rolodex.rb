@@ -1,8 +1,8 @@
 class Rolodex 
 	attr_accessor :name,:record
-	
+
 	def initialize
-		@record = 0
+		@record = Hash.new(0)
 	end
 
 	def update_record(winner)

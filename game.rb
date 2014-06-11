@@ -18,7 +18,7 @@ class Game
 		outcome = Ranker.score(@player1.hand) <=> Ranker.score(@player2.hand)
 		case outcome
 		when -1 then @rolodex.update_record("player2"); "Player 2 Wins"
-		when 0 then "Tie"
+		when 0 then Ranker.tie(@player1.hand,@player2.hand)
 		when 1 then @rolodex.update_record("player1"); "Player 1 Wins!"
 		end
 	end
