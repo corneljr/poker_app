@@ -5,3 +5,9 @@ header {
 	margin-right: auto;
 	border-bottom: 1px solid red;
 }
+
+.card {
+	height: 150px;
+	width: 100px;
+	background-color: red;
+}
