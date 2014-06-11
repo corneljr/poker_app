@@ -7,8 +7,30 @@ header {
 }
 
 .card {
+	font-size: 20px;
+	position: relative;
 	height: 150px;
 	width: 100px;
 	background-color: red;
 	display: inline-block;
+	color: white;
+}
+
+.card-suit, .card-number {
+	position: absolute;
+}
+
+.card-suit {
+	font-size: 32px;
+	top: -6px;
+	left: 6px;
+}
+
+.card-number {
+	bottom: 0px;
+	right: 16px;
+}
+
+.black{
+	background-color: black;
 }

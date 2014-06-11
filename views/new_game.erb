@@ -1,11 +1,24 @@
 
 <% @@game.player1.hand.each do |card| %>	
-	<div class="card"><p><%= card.suit %></p><p><%= card.number %></p></div>
-
+<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
+	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+	<% else %>
+			<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+	<% end %>
 <% end %>
 
-<a href="/play_again">play again</a>
+<p><a href="/play_again">play again</a><p>
+
+<% @@game.player2.hand.each do |card| %>
+		<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
+	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+	<% else %>
+	<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+		<% end %>
+<% end %>	
 
 <%= @@game.hand_value %>
 
-<%= @@game.record %>
+<%# @@rolodex.record.each do |key,value| %>
+<p> <%#= key,value %> </p>
+<%# end %>  

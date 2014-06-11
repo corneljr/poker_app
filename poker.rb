@@ -3,7 +3,7 @@ require 'sinatra'
 
 
 	@@rolodex = Rolodex.new
-	@@game = Game.new
+	@@game = Game.new(@@rolodex)
 
 get '/' do
 	erb :index
@@ -20,6 +20,7 @@ get '/new_game' do
 end
 
 get '/play_again' do
+	@@game = Game.new(@@rolodex)
 	@@game.start_game
 	erb :new_game
 end

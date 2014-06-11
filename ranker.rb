@@ -74,6 +74,7 @@ class Ranker
 		hash.values.include?(2) && hash.length == 3 
 	end
 
+
 private
 
 	def self.cards_in_suits(cards)
@@ -86,8 +87,8 @@ private
 
 	def self.card_counter(cards)
 		hash = Hash.new(0)
-		cards.each do |card|
-			hash[card] += 1
+			cards.each do |card|
+				hash[card] += 1
 		end
 		hash
 	end
