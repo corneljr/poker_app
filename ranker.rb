@@ -74,8 +74,6 @@ class Ranker
 		hash.values.include?(2) && hash.length == 3 
 	end
 
-	def self.tie(hand1,hand2)
-
 private
 
 	def self.cards_in_suits(cards)
