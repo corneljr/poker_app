@@ -1,16 +1,10 @@
-<p>
-<% @@game.player1.hand.each do |card| %>
-<%= card.suit %>
-<%= card.number%>
-<% end %>
-</p>
 
-<p>
-<% @@game.player2.hand.each do |card| %>
-<%= card.suit %>
-<%= card.number%>
+<% @@game.player1.hand.each do |card| %>
+	
+	
+	<div class="card"><p><%= card.suit %></p><p><%= card.number %></p></div>
+
 <% end %>
-</p>
 
 <a href="/play_again">play again</a>
 

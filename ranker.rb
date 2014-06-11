@@ -34,13 +34,11 @@ class Ranker
 
 	def self.straight?(cards)
 		cards = Ranker.cards_in_numbers(cards)
-		p cards
 		cards.uniq.length == 5 && (cards.max - cards.min)== 4
 	end
 
 	def self.flush?(cards)
 		cards = Ranker.cards_in_suits(cards)
-		p cards
 		cards.size - cards.uniq.size == 4
 	end
 
