@@ -18,3 +18,8 @@ end
 get '/new_game' do
 	erb :new_game
 end
+
+get '/play_again' do
+	@@game.start_game
+	erb :new_game
+end
