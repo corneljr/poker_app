@@ -4,7 +4,7 @@ class Ranker
 		if self.royal_flush?(cards)
 			1_000_000_000
 		elsif self.straight_flush?(cards)
-			1000
+			1_000
 		elsif self.four_of_a_kind?(cards)
 			900
 		elsif self.full_house?(cards)

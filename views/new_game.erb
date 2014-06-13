@@ -1,6 +1,6 @@
 
 	<div class="comp_hand">
-		<span class="hand_name">Full House</span>
+		<span class="hand_name"><%= @@game.display_hand(@@game.player.hand) %></span>
 		<% @@game.player.hand.each do |card| %>	
 		<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
 			<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
@@ -19,7 +19,7 @@
 		</form>
 	 </div>
 	 <div class="player_hand">
-	 	<span class="hand_name">Straight</span>
+	 	<span class="hand_name"><%= @@game.display_hand(@@game.computer.hand) %></span>
 		<% @@game.computer.hand.each do |card| %>
 				<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
 			<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>

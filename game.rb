@@ -20,6 +20,23 @@ class Game
 		when 1 then winner = "player"
 		end
 	end
+	def display_hand(hand)
+		hand_score = Ranker.score(hand)
+		hand_str = ""
+		case hand_score
+			when 1_000_000_000 then hand_str = "Royal Flush"
+			when 1_000 then hand_str = "Straight Flush"
+			when 900 then hand_str = "Four of a Kind"
+			when 800 then hand_str = "Full House"
+			when 700 then hand_str = "Flush"
+			when 600 then hand_str = "Straight"
+			when 500 then hand_str = "Three of a Kind"
+			when 400 then hand_str = "Two Pair"
+			when 300 then hand_str = "Pair"
+			when 200 then hand_str = "High Card"
+		end
+		hand_str
+	end
 end
 
 class Rolodex 
