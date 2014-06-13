@@ -1,5 +1,5 @@
 
-<% @@game.player1.hand.each do |card| %>	
+<% @@game.player.hand.each do |card| %>	
 <% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
 	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
 	<% else %>
@@ -9,7 +9,7 @@
 
 <p><a href="/play_again">play again</a><p>
 
-<% @@game.player2.hand.each do |card| %>
+<% @@game.computer.hand.each do |card| %>
 		<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
 	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
 	<% else %>
@@ -18,8 +18,8 @@
 <% end %>	
 
 <%= @@game.hand_value %>
-<p></p>
-<p>Record:</p>
-<% @@rolodex.record.each do |key,value| %>
-<p><%= key %> : <%= value %></p>
-<% end %>  
+<!-- <p></p>
+<p>Record:</p> -->
+<%# @@rolodex.record.each do |key,value| %>
+<!-- <p><%#= key %> : <%#= value %></p> -->
+<%# end %>  

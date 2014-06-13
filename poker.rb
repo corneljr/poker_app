@@ -1,7 +1,6 @@
 require_relative 'game'
 require 'sinatra'
 
-
 	@@rolodex = Rolodex.new
 	@@game = Game.new(@@rolodex)
 

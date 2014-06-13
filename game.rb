@@ -1,40 +1,35 @@
 require_relative 'ranker'
 require_relative 'assets'
-require_relative 'rolodex'
 
 class Game
-	attr_reader :player1, :player2, :record
+	attr_reader :player, :computer, :result
 	def initialize(rolodex)
 		@rolodex = rolodex
-		@record = Hash.new(0)
 		@dealer = Dealer.new
-		@player1 = Player.new
-		@player2 = Player.new
+		@player = Player.new
+		@computer = Player.new
 	end
 	def start_game
-		@dealer.deal(@player1,@player2)
+		@dealer.deal(@player,@computer)
 	end
 	def hand_value
-		outcome = Ranker.score(@player1.hand) <=> Ranker.score(@player2.hand)
+		outcome = Ranker.score(@player.hand) <=> Ranker.score(@computer.hand)
 		case outcome
-		when -1 then @rolodex.update_record("player2"); "Player 2 Wins"
-		when 0 then tie(@player1.hand,@player2.hand)
-		when 1 then @rolodex.update_record("player1"); "Player 1 Wins!"
+		when -1 then winner = "computer"
+		when 0 then winner = Ranker.tie_breaker(@player.hand,@computer.hand)
+		when 1 then winner = "player"
 		end
 	end
+end
 
-	def tie(hand1,hand2)
-		hand1 = Ranker.cards_in_numbers(hand1)
-		hand2 = Ranker.cards_in_numbers(hand2)
+class Rolodex 
+	attr_accessor :name,:record
 
-		# while hand1.length > 2
-		comparison = hand1.max <=> hand2.max
-		case comparison
-		when 1 then @rolodex.update_record("player1"); "player 1 wins!"
-		when -1 then @rolodex.update_record("player2"); "player 2 wins"
-		else "tie"
-			# hand1 = hand1.delete(hand1.max)
-			# hand2 = hand2.delete(hand2.max)
-		end
+	def initialize
+		@record = Hash.new(0)
+	end
+
+	def update_record(winner)
+		@record[winner] += 1
 	end
 end

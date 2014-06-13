@@ -5,11 +5,6 @@ class Card
 		@number = number
 	end
 
-	def to_s
-		Card.parse_card(@number) + @suit
-	end
-
-
 	def self.parse_card(number)
 	  case number
 		when 2..10 then number

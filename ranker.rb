@@ -74,8 +74,17 @@ class Ranker
 		hash.values.include?(2) && hash.length == 3 
 	end
 
+	def self.tie_breaker(player,computer)
+		player_hand = Ranker.cards_in_numbers(player)
+		computer_hand = Ranker.cards_in_numbers(computer)
 
-private
+		comparison = player_hand.max <=> computer_hand.max
+		case comparison
+		when 1 then "player"
+		when -1 then "computer"
+		else player_hand.sort[-2] > computer_hand[-2] ? "player" : "computer"
+		end
+	end
 
 	def self.cards_in_suits(cards)
 		 cards.map(&:suit)
@@ -92,5 +101,4 @@ private
 		end
 		hash
 	end
-
 end
