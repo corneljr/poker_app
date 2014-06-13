@@ -82,7 +82,7 @@ class Ranker
 		case comparison
 		when 1 then "player"
 		when -1 then "computer"
-		else player_hand.sort[-2] > computer_hand[-2] ? "player" : "computer"
+		else player_hand.sort[-2] > computer_hand.sort[-2] ? "player" : "computer"
 		end
 	end
 

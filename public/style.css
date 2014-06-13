@@ -1,9 +1,26 @@
+@font-face
+{
+	font-family: cool_numbers;
+	src: url(digital.TTF);
+	font-weight: 100;
+}
+
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #2ECC71;
+}
+
 header {
 	text-align: center;
 	width: 100px;
 	margin-left: auto;
 	margin-right: auto;
 	border-bottom: 1px solid red;
+}
+.center {
+	text-align: center;
 }
 
 .card {
@@ -14,6 +31,8 @@ header {
 	background-color: red;
 	display: inline-block;
 	color: white;
+	padding: 50px;
+
 }
 
 .card-suit, .card-number {
@@ -21,16 +40,58 @@ header {
 }
 
 .card-suit {
-	font-size: 32px;
+	font-size: 60px;
 	top: -6px;
 	left: 6px;
 }
 
 .card-number {
+	font-size:36px;
 	bottom: 0px;
 	right: 16px;
 }
 
 .black{
 	background-color: black;
+}
+
+.container {
+	width: 95%;
+	margin: 0 auto;
+	padding-bottom: 20px;
+
+
+}	
+
+.comp_hand, .player_hand {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.bet_area {
+	width: 80%;
+	margin: 0 auto;
+	height: 150px;
+	padding-top: 5%;
+}
+
+button {
+		font-size: 3em;
+		font-family: Raleway;
+		background-color: #3498db;
+		width: 200px;
+		border: none;
+}	
+button a {
+	text-decoration: none;
+
+		color: white;
+}
+
+.win_tally {
+	font-size: 10em;
+	font-family: cool_numbers;
+}
+.hand_name {
+	font-size: 2em;
 }

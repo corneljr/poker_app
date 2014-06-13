@@ -1,23 +1,35 @@
 
-<% @@game.player.hand.each do |card| %>	
-<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
-	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
-	<% else %>
-			<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
-	<% end %>
-<% end %>
-
-<p><a href="/play_again">play again</a><p>
-
-<% @@game.computer.hand.each do |card| %>
+	<div class="comp_hand">
+		<span class="hand_name">Full House</span>
+		<% @@game.player.hand.each do |card| %>	
 		<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
-	<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
-	<% else %>
-	<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<% else %>
+					<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<% end %>
 		<% end %>
-<% end %>	
 
-<%= @@game.hand_value %>
+	<span class="win_tally">10</span>
+	</div>
+	<div class="bet_area">
+		<form class="center" oninput="amount.value = bet.value">
+		   <input type="range" id="bet" name="bet" min="0" max="100" value="0">
+		    <button><a href="/play_again">Bet $<output name="amount" for="bet">0</output></a></button>
+		   <h2>Balance: $<span id="balance">1000</span></h2> 
+		</form>
+	 </div>
+	 <div class="player_hand">
+	 	<span class="hand_name">Straight</span>
+		<% @@game.computer.hand.each do |card| %>
+				<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
+			<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<% else %>
+			<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+				<% end %>
+		<% end %>	
+		<span class="win_tally">10</span>
+	</div>
+
 <!-- <p></p>
 <p>Record:</p> -->
 <%# @@rolodex.record.each do |key,value| %>
