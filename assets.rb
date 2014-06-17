@@ -32,13 +32,14 @@ class Deck
 end
 
 class Dealer
+
 	def initialize
 		@deck = Deck.new
 	end
 
 	def deal(player1,player2)
-		@deck.deck.shuffle!
-		to_deal = @deck.deck.pop(10)
+		deck = @deck.deck.shuffle!
+		to_deal = deck.pop(10)
 		player1.hand = to_deal[5..9]
 		player2.hand = to_deal[0..4]
 	end
@@ -50,4 +51,5 @@ class Player
 	def initialize
 		@hand = []
 	end
+	
 end

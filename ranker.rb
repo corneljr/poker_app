@@ -80,9 +80,9 @@ class Ranker
 
 		comparison = player_hand.max <=> computer_hand.max
 		case comparison
-		when 1 then "player"
-		when -1 then "computer"
-		else player_hand.sort[-2] > computer_hand.sort[-2] ? "player" : "computer"
+		when 1 then "win"
+		when -1 then "loss"
+		else player_hand.sort[-2] > computer_hand.sort[-2] ? "win" : "loss"
 		end
 	end
 
@@ -100,5 +100,33 @@ class Ranker
 				hash[card] += 1
 		end
 		hash
+	end
+
+	def self.display_hand(hand)
+		hand_score = Ranker.score(hand)
+		hand_str = ""
+		case hand_score
+			when 1_000_000_000 then hand_str = "Royal Flush"
+			when 1_000 then hand_str = "Straight Flush"
+			when 900 then hand_str = "Four of a Kind"
+			when 800 then hand_str = "Full House"
+			when 700 then hand_str = "Flush"
+			when 600 then hand_str = "Straight"
+			when 500 then hand_str = "Three of a Kind"
+			when 400 then hand_str = "Two Pair"
+			when 300 then hand_str = "Pair"
+			when 200 then hand_str = "High Card"
+		end
+		hand_str
+	end
+
+	def self.outcome(player, computer)
+		outcome = Ranker.score(player) <=> Ranker.score(computer)
+		case outcome
+		when -1 then winner = "loss"
+		when 0 then winner = Ranker.tie_breaker(player,computer)
+		when 1 then winner = "win"
+		end
+		winner
 	end
 end

@@ -1,22 +1,22 @@
-
-	<div class="comp_hand">
+<div class="comp_hand">
 		<span class="hand_name"><%= @@game.display_hand(@@game.player.hand) %></span>
 		<% @@game.player.hand.each do |card| %>	
 		<% if card.suit == "&#9830;" || card.suit == "&#9829;"%>
-			<div class="card blue"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
-			<%else %>
-					<div class="card blue"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<div class="card"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
+			<% else %>
+					<div class="card black"><p class="card-suit"><%= card.suit %></p><p class="card-number"><%= card.number %></p></div>
 			<% end %>
 		<% end %>
 
 	<span class="win_tally">10</span>
 	</div>
 	<div class="bet_area">
-		<form action='/bet' method='post' class="center" oninput="amount.value = bet.value">
+		<!-- <form action='/bet' method='post' class="center" oninput="amount.value = bet.value">
 		   <input type="range" id="bet" name="bet" min="0" max="100" value="0">
-		    <input type="submit" value="bet">Bet $<output name="amount" for="bet">0</output>
-		   <h2>Balance: $<span id="balance">1000</span></h2> 
-		</form>
+		    <button><a href="/play_again">Bet $<output name="amount" for="bet">0</output></a></button> -->
+		   <h2>Balance: $<span id="balance"><%= @record.balance %></span></h2> 
+		   <button><a href="/start_game">new game</a></button>
+		<!-- </form> -->
 	 </div>
 	 <div class="player_hand">
 	 	<span class="hand_name"><%= @@game.display_hand(@@game.computer.hand) %></span>

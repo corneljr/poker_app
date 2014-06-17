@@ -55,6 +55,11 @@ header {
 	background-color: black;
 }
 
+.blue {
+	background-color: blue;
+	color: blue;
+}
+
 .container {
 	width: 95%;
 	margin: 0 auto;
